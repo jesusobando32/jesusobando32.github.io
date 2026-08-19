@@ -82,13 +82,13 @@ const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="flex flex-wrap gap-4 pt-8"
+          className="flex flex-col sm:flex-row gap-4 pt-8 w-full"
         >
-          <a href="#projects" className="flex items-center gap-2 border border-accent bg-accent px-6 py-3 font-mono text-sm font-bold uppercase text-background transition-colors hover:bg-transparent hover:text-accent">
+          <a href="#projects" className="flex items-center justify-center gap-2 border border-accent bg-accent px-6 py-3 font-mono text-sm font-bold uppercase text-background transition-colors hover:bg-transparent hover:text-accent w-full sm:w-auto">
             EXECUTE_PROJECTS()
             <ChevronRight className="h-4 w-4" />
           </a>
-          <a href="#contact" className="border border-card-border bg-transparent px-6 py-3 font-mono text-sm font-bold uppercase text-foreground transition-colors hover:bg-card">
+          <a href="#contact" className="flex items-center justify-center border border-card-border bg-transparent px-6 py-3 font-mono text-sm font-bold uppercase text-foreground transition-colors hover:bg-card w-full sm:w-auto">
             VIEW_SOURCE
           </a>
         </motion.div>
@@ -138,7 +138,7 @@ const Hero = () => {
           opacity: { duration: 2, delay: 1 },
           y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
         }}
-        className="pointer-events-none absolute right-[-5%] md:right-10 lg:right-20 top-1/2 -z-0 opacity-60"
+        className="hidden md:block pointer-events-none absolute md:right-10 lg:right-20 top-1/2 -z-0 opacity-60"
       >
         <pre className="font-mono text-sm md:text-base lg:text-lg text-accent-secondary p-4 drop-shadow-md">
           {`{

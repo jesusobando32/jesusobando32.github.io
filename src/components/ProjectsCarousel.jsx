@@ -65,7 +65,7 @@ const ProjectsCarousel = () => {
                 opacity: isCenter ? 1 : 0.3,
               }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }} // Custom spring-like easing
-              className={`absolute w-[85%] sm:w-[70%] max-w-xl p-8 md:p-10 rounded-2xl flex flex-col gap-6 border border-card-border shadow-2xl ${isCenter ? 'pointer-events-auto cursor-default' : 'cursor-pointer hover:opacity-50 transition-opacity'}`}
+              className={`absolute w-[92%] sm:w-[75%] md:w-[70%] max-w-xl p-5 sm:p-8 md:p-10 rounded-2xl flex flex-col gap-4 sm:gap-6 border border-card-border shadow-2xl ${isCenter ? 'pointer-events-auto cursor-default' : 'cursor-pointer hover:opacity-50 transition-opacity'}`}
               style={{
                 background: cardGradients[index % cardGradients.length],
                 transformOrigin: "center center",
