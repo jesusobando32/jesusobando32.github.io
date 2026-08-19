@@ -41,9 +41,16 @@ const ProjectsCarousel = () => {
       </div>
 
       {/* Contenedor del Carrusel 3D */}
-      <div 
-        className="relative w-full py-12 flex justify-center items-center min-h-[450px]"
-        style={{ perspective: 1200 }}
+      <motion.div 
+        className="relative w-full py-12 flex justify-center items-center min-h-[450px] overflow-hidden sm:overflow-visible"
+        style={{ perspective: 1200, touchAction: "pan-y" }}
+        onPanEnd={(e, info) => {
+          if (info.offset.x < -50) {
+            nextProject();
+          } else if (info.offset.x > 50) {
+            prevProject();
+          }
+        }}
       >
         {t.projects.map((project, index) => {
           const offset = index - currentIndex;
@@ -118,7 +125,7 @@ const ProjectsCarousel = () => {
             </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* Controles del carrusel */}
       <div className="flex justify-center items-center gap-6 mt-4 relative z-20">
