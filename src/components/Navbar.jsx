@@ -1,7 +1,9 @@
 import React from 'react';
 import { Terminal } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Navbar = () => {
+  const { language } = useLanguage();
   return (
     <header className="sticky top-0 z-50 w-full border-b border-card-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:px-12">
@@ -28,9 +30,14 @@ const Navbar = () => {
         </nav>
         
         <div className="flex items-center gap-4">
-          <button className="flex items-center gap-2 border border-accent bg-transparent px-4 py-2 font-mono text-sm font-bold uppercase text-accent transition-all duration-300 hover:bg-accent hover:text-background">
-            DOWNLOAD_CV
-          </button>
+          <a
+            href={`${import.meta.env.BASE_URL}${language === 'es' ? 'cv-es.pdf' : 'cv-en.pdf'}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 border border-accent bg-transparent px-4 py-2 font-mono text-sm font-bold uppercase text-accent transition-all duration-300 hover:bg-accent hover:text-background"
+          >
+            {language === 'es' ? 'DESCARGAR_CV' : 'DOWNLOAD_CV'}
+          </a>
         </div>
       </div>
     </header>
