@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Spotlight from './components/Spotlight';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -11,15 +11,20 @@ import Silk from './components/Silk'; // Assuming shadcn creates it here
 import Antigravity from './components/Antigravity';
 import CustomCursor from './components/CustomCursor';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import Loader from './components/Loader';
+import MobileCTA from './components/MobileCTA';
 import { useLanguage } from './context/LanguageContext';
 
 function App() {
   const { t } = useLanguage();
+  const [isLoading, setIsLoading] = useState(true);
   
   return (
     <div className="relative w-full min-h-screen overflow-x-hidden">
+      {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
       <CustomCursor />
       <LanguageSwitcher />
+      <MobileCTA />
       {/* Background Layer */}
       <div className="fixed inset-0 z-0 pointer-events-none bg-background">
         {/* Antigravity Base Layer */}
@@ -104,8 +109,16 @@ function App() {
             <div className="font-mono text-sm font-bold text-accent">
               <span className="mr-2">TERMINAL_ROOT</span>
             </div>
-            <div className="font-mono text-xs text-muted-foreground">
-              © 2026 JESÚS_OBANDO. ALL_RIGHTS_RESERVED.
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <button 
+                onClick={() => alert("Política de Privacidad: Este portafolio no recopila datos personales sensibles. Cualquier información enviada a través de los enlaces de contacto será utilizada exclusivamente para responder a tu solicitud y no será compartida con terceros.")}
+                className="font-mono text-xs text-muted-foreground hover:text-accent transition-colors cursor-pointer"
+              >
+                Política de Privacidad
+              </button>
+              <div className="font-mono text-xs text-muted-foreground">
+                © 2026 JESÚS_OBANDO. ALL_RIGHTS_RESERVED.
+              </div>
             </div>
           </div>
         </footer>

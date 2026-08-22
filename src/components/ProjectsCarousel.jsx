@@ -42,7 +42,7 @@ const ProjectsCarousel = () => {
 
       {/* Contenedor del Carrusel 3D */}
       <motion.div 
-        className="relative w-full py-12 flex justify-center items-center min-h-[450px] overflow-hidden sm:overflow-visible"
+        className="relative w-full py-12 flex justify-center items-center min-h-[550px] overflow-hidden sm:overflow-visible"
         style={{ perspective: 1200, touchAction: "pan-y" }}
         onPanEnd={(e, info) => {
           if (info.offset.x < -50) {
@@ -57,9 +57,6 @@ const ProjectsCarousel = () => {
           const absOffset = Math.abs(offset);
           const isCenter = offset === 0;
           
-          // Solo renderizamos 3 tarjetas a la vez para mantener el efecto y rendimiento
-          if (absOffset > 1) return null;
-
           return (
             <motion.div
               key={project.id}
@@ -87,7 +84,13 @@ const ProjectsCarousel = () => {
                 {`{ id: '${project.id}' }`}
               </div>
               
-              <div className="flex flex-col flex-grow relative">
+              {project.image && (
+                <div className="w-full h-32 sm:h-40 relative rounded-lg overflow-hidden border border-card-border/50 shrink-0 mt-2">
+                  <img src={project.image} alt={language === 'es' ? `Captura de pantalla de ${project.title}` : `Screenshot of ${project.title}`} className="object-cover w-full h-full" />
+                </div>
+              )}
+              
+              <div className="flex flex-col flex-grow relative mt-2">
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-2xl md:text-3xl font-bold text-foreground">
                     {project.title}

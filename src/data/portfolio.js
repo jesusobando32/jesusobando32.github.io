@@ -21,7 +21,12 @@ const driftWallItems = [
   { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg", title: "IntelliJ" },
   { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg", title: "Postman" },
   { image: "https://cdn.simpleicons.org/n8n/FF6666", title: "n8n" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg", title: "SQL" }
+  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg", title: "SQL" },
+  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg", title: "Spring Boot" },
+  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg", title: "TensorFlow" },
+  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg", title: "Docker" },
+  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg", title: "SQLite" },
+  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vite/vite-original.svg", title: "Vite" }
 ];
 
 const contact = {
@@ -50,36 +55,57 @@ export const portfolioData = {
     driftWallItems,
     projects: [
       {
-        id: "agencia-viajes",
-        title: "Agencia de Viajes Web",
+        id: "viajes-ucab",
+        title: "Viajes UCAB",
         role: "Full Stack",
-        description: "E-commerce turístico con flujo de compra multi-paso, servidor conectado a base de datos relacional y Stored Procedures para validar compras en tiempo real.",
-        tech: ["Vue.js", "Node.js", "Express", "PostgreSQL"],
-        githubUrl: "https://github.com/ArtP10/bdd-proyect"
+        description: "Plataforma integral para la gestión de servicios turísticos con arquitectura relacional normalizada, delegación lógica en base de datos y generación asíncrona de reportes.",
+        tech: ["Vue.js 3", "Node.js", "Express", "PostgreSQL"],
+        githubUrl: "https://github.com/jesusobando32/viajes-ucab-fullstack",
+        image: "https://raw.githubusercontent.com/jesusobando32/viajes-ucab-fullstack/main/docs/dashboardViajero.png"
+      },
+      {
+        id: "secure-firmware",
+        title: "Secure Firmware Portal",
+        role: "Backend / Seguridad",
+        description: "Sistema de gestión con enfoque AppSec desarrollado para mitigar vulnerabilidades del OWASP Top 10 mediante controles criptográficos estrictos y prevención de vectores RCE.",
+        tech: ["Python", "Flask", "SQLite", "Criptografía"],
+        githubUrl: "https://github.com/jesusobando32/secure-firmware-portal",
+        image: "https://raw.githubusercontent.com/jesusobando32/secure-firmware-portal/main/docs/dashboard.png"
+      },
+      {
+        id: "connect6-ai",
+        title: "Connect6 AI Agent",
+        role: "IA / Backend",
+        description: "Agente inteligente basado en una arquitectura híbrida de Deep Learning y heurística, orquestado mediante microservicios de ultra-baja latencia.",
+        tech: ["Python", "TensorFlow", "MCTS", "gRPC", "Docker"],
+        githubUrl: "https://github.com/jesusobando32/Connect6-AI-Agent"
+      },
+      {
+        id: "b2b-aldebaran",
+        title: "B2B Aldebaran Platform",
+        role: "Full Stack",
+        description: "Plataforma de gestión comercial End-to-End impulsada por una API RESTful escalable, diseñada con arquitectura zero-config para optimizar operaciones B2B.",
+        tech: ["Java", "Spring Boot", "HTML5", "JS", "H2", "JPA"],
+        githubUrl: "https://github.com/jesusobando32/b2b-aldebaran-platform",
+        image: "https://raw.githubusercontent.com/jesusobando32/b2b-aldebaran-platform/main/docs/main-menu.png"
       },
       {
         id: "battleship-web",
-        title: "Battleship Web Multijugador",
+        title: "Batalla Naval (Multiplayer)",
         role: "Full Stack",
-        description: "Juego interactivo con tableros, power-ups y arquitectura Back-End con comunicación bidireccional en tiempo real.",
-        tech: ["HTML", "CSS", "JavaScript", "Node.js", "Deno", "WebSockets"],
-        githubUrl: "https://github.com/jesusobando32/Battleship-WEB"
+        description: "Motor de juego cliente-servidor de baja latencia capaz de gestionar estados concurrentes y sincronización bidireccional en tiempo real para múltiples salas.",
+        tech: ["Deno", "Vanilla JS", "HTML5", "CSS3", "WebSockets"],
+        githubUrl: "https://github.com/jesusobando32/Batalla-Naval-RealTime-Multiplayer",
+        image: "https://raw.githubusercontent.com/jesusobando32/Batalla-Naval-RealTime-Multiplayer/main/docs/battleship-gameplay.png"
       },
       {
         id: "uno-game",
-        title: "Juego de UNO",
+        title: "UNO Card Game",
         role: "Desarrollador Java",
-        description: "Implementación local del clásico juego de cartas UNO desarrollado en Java, enfocado en el uso y aplicación de la Programación Orientada a Objetos (POO).",
-        tech: ["Java", "POO", "Lógica de Juegos"],
-        githubUrl: "https://github.com/jesusobando32/UNO-GAME"
-      },
-      {
-        id: "gestion-pedidos",
-        title: "Gestión de Pedidos (Abasto Albedarán)",
-        role: "Full Stack",
-        description: "Plataforma de administración con interfaz visual, servidor Java bajo patrón MVC y base de datos relacional segura.",
-        tech: ["Java", "MVC", "HTML", "CSS", "JavaScript", "SQL"],
-        githubUrl: "https://github.com/jesusobando32/PedidosAbastoAlbedaran"
+        description: "Aplicación de escritorio orientada a eventos construida bajo el patrón MVC, integrando un motor lógico robusto, interfaces asíncronas y serialización para persistencia de estado.",
+        tech: ["Java 21", "JavaFX", "MVC", "Gson", "Maven"],
+        githubUrl: "https://github.com/jesusobando32/UNO-GAME",
+        image: "https://raw.githubusercontent.com/jesusobando32/UNO-GAME/main/docs/gameplay.png"
       }
     ],
     experience: [
@@ -120,36 +146,57 @@ export const portfolioData = {
     driftWallItems,
     projects: [
       {
-        id: "agencia-viajes",
-        title: "Web Travel Agency",
+        id: "viajes-ucab",
+        title: "Viajes UCAB",
         role: "Full Stack",
-        description: "Tourism E-commerce with a multi-step purchase flow, server connected to a relational database, and Stored Procedures for real-time purchase validation.",
-        tech: ["Vue.js", "Node.js", "Express", "PostgreSQL"],
-        githubUrl: "https://github.com/ArtP10/bdd-proyect"
+        description: "Comprehensive platform for tourism services management with a normalized relational architecture, logical delegation in the database, and asynchronous report generation.",
+        tech: ["Vue.js 3", "Node.js", "Express", "PostgreSQL"],
+        githubUrl: "https://github.com/jesusobando32/viajes-ucab-fullstack",
+        image: "https://raw.githubusercontent.com/jesusobando32/viajes-ucab-fullstack/main/docs/dashboardViajero.png"
+      },
+      {
+        id: "secure-firmware",
+        title: "Secure Firmware Portal",
+        role: "Backend / Security",
+        description: "Management system with an AppSec approach developed to mitigate OWASP Top 10 vulnerabilities through strict cryptographic controls and RCE vector prevention.",
+        tech: ["Python", "Flask", "SQLite", "Cryptography"],
+        githubUrl: "https://github.com/jesusobando32/secure-firmware-portal",
+        image: "https://raw.githubusercontent.com/jesusobando32/secure-firmware-portal/main/docs/dashboard.png"
+      },
+      {
+        id: "connect6-ai",
+        title: "Connect6 AI Agent",
+        role: "AI / Backend",
+        description: "Intelligent agent based on a hybrid Deep Learning and heuristic architecture, orchestrated through ultra-low latency microservices.",
+        tech: ["Python", "TensorFlow", "MCTS", "gRPC", "Docker"],
+        githubUrl: "https://github.com/jesusobando32/Connect6-AI-Agent"
+      },
+      {
+        id: "b2b-aldebaran",
+        title: "B2B Aldebaran Platform",
+        role: "Full Stack",
+        description: "End-to-End commercial management platform driven by a scalable RESTful API, designed with a zero-config architecture to optimize B2B operations.",
+        tech: ["Java", "Spring Boot", "HTML5", "JS", "H2", "JPA"],
+        githubUrl: "https://github.com/jesusobando32/b2b-aldebaran-platform",
+        image: "https://raw.githubusercontent.com/jesusobando32/b2b-aldebaran-platform/main/docs/main-menu.png"
       },
       {
         id: "battleship-web",
-        title: "Multiplayer Web Battleship",
+        title: "Battleship (Multiplayer)",
         role: "Full Stack",
-        description: "Interactive game with boards, power-ups, and a Back-End architecture with real-time bidirectional communication.",
-        tech: ["HTML", "CSS", "JavaScript", "Node.js", "Deno", "WebSockets"],
-        githubUrl: "https://github.com/jesusobando32/Battleship-WEB"
+        description: "Low-latency client-server game engine capable of managing concurrent states and real-time bidirectional synchronization for multiple rooms.",
+        tech: ["Deno", "Vanilla JS", "HTML5", "CSS3", "WebSockets"],
+        githubUrl: "https://github.com/jesusobando32/Batalla-Naval-RealTime-Multiplayer",
+        image: "https://raw.githubusercontent.com/jesusobando32/Batalla-Naval-RealTime-Multiplayer/main/docs/battleship-gameplay.png"
       },
       {
         id: "uno-game",
-        title: "UNO Game",
+        title: "UNO Card Game",
         role: "Java Developer",
-        description: "Local implementation of the classic UNO card game developed in Java, focused on the use and application of Object-Oriented Programming (OOP).",
-        tech: ["Java", "OOP", "Game Logic"],
-        githubUrl: "https://github.com/jesusobando32/UNO-GAME"
-      },
-      {
-        id: "gestion-pedidos",
-        title: "Order Management (Abasto Albedarán)",
-        role: "Full Stack",
-        description: "Management platform with a visual interface, Java server under MVC pattern, and a secure relational database.",
-        tech: ["Java", "MVC", "HTML", "CSS", "JavaScript", "SQL"],
-        githubUrl: "https://github.com/jesusobando32/PedidosAbastoAlbedaran"
+        description: "Event-driven desktop application built under the MVC pattern, integrating a robust logic engine, asynchronous interfaces, and serialization for state persistence.",
+        tech: ["Java 21", "JavaFX", "MVC", "Gson", "Maven"],
+        githubUrl: "https://github.com/jesusobando32/UNO-GAME",
+        image: "https://raw.githubusercontent.com/jesusobando32/UNO-GAME/main/docs/gameplay.png"
       }
     ],
     experience: [
