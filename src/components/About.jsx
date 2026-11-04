@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import ScrollReveal from './rb/ScrollReveal';
+import DecryptedText from './rb/DecryptedText';
 
 const About = () => {
   const { t } = useLanguage();
@@ -10,7 +12,7 @@ const About = () => {
       <div className="flex items-center gap-4 mb-12">
         <h2 className="font-sans text-3xl font-bold tracking-tight text-foreground md:text-4xl">
           <span className="text-accent-secondary font-mono">&lt;</span>
-          AboutMe
+          <DecryptedText text="AboutMe" animateOn="view" speed={45} sequential revealDirection="start" />
           <span className="text-accent-secondary font-mono"> /&gt;</span>
         </h2>
         <div className="h-px flex-grow bg-card-border"></div>
@@ -29,13 +31,13 @@ const About = () => {
           /* src/data/portfolio.js */
         </div>
         
-        <p className="font-sans text-lg text-muted-foreground leading-relaxed">
-          {t.about.description1}
-          <br /><br />
-          {t.about.description2}
-          <br /><br />
-          {t.about.description3}
-        </p>
+        <div className="about-reveal flex flex-col gap-6 text-muted-foreground">
+          {[t.about.description1, t.about.description2, t.about.description3].map((d, i) => (
+            <ScrollReveal key={i} baseOpacity={0.15} baseRotation={0} blurStrength={3} enableBlur wordAnimationEnd="bottom 70%">
+              {d}
+            </ScrollReveal>
+          ))}
+        </div>
       </motion.div>
     </section>
   );

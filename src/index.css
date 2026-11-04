@@ -132,3 +132,8 @@
 .pointer-events-none {
   pointer-events: none;
 }
+/* React Bits: ajustes al estilo del portafolio */
+.about-reveal .scroll-reveal { margin: 0; }
+.about-reveal .scroll-reveal-text { font-size: 1.125rem; line-height: 1.75; font-weight: 400; font-family: inherit; }
+.vel-row { overflow: hidden; white-space: nowrap; }
+.vel-scroller { font-size: clamp(1.25rem, 3.4vw, 2.5rem); line-height: 1.4; }

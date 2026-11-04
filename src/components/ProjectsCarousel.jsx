@@ -2,6 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import TiltedCard from './rb/TiltedCard';
+import DecryptedText from './rb/DecryptedText';
+
+// Inclinación 3D solo con mouse, pantalla ancha y sin 'reducir movimiento'.
+const TILT_QUERY = '(min-width: 768px) and (hover: hover) and (prefers-reduced-motion: no-preference)';
+function useTiltAllowed() {
+  const [ok, setOk] = useState(() => window.matchMedia(TILT_QUERY).matches);
+  useEffect(() => {
+    const mq = window.matchMedia(TILT_QUERY);
+    const on = () => setOk(mq.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  return ok;
+}
 
 // Gradientes sutiles para cada tarjeta
 const cardGradients = [
@@ -14,6 +29,7 @@ const cardGradients = [
 const ProjectsCarousel = () => {
   const { language, t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const tiltOk = useTiltAllowed();
 
   const nextProject = () => {
     setCurrentIndex((prev) => (prev === t.projects.length - 1 ? 0 : prev + 1));
@@ -35,14 +51,15 @@ const ProjectsCarousel = () => {
     <section id="projects" className="w-full pt-12 pb-8 overflow-hidden">
       <div className="flex items-center gap-4 mb-12">
         <h2 className="font-sans text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-          <span className="text-accent-secondary font-mono">const</span> projects = [
+          <span className="text-accent-secondary font-mono">const</span>{' '}
+          <DecryptedText text="projects" animateOn="view" speed={45} sequential revealDirection="start" /> = [
         </h2>
         <div className="h-px flex-grow bg-card-border"></div>
       </div>
 
       {/* Contenedor del Carrusel 3D */}
       <motion.div 
-        className="relative w-full py-12 flex justify-center items-center min-h-[550px] overflow-hidden sm:overflow-visible"
+        className="relative w-full py-12 flex justify-center items-center min-h-[700px] sm:min-h-[700px] overflow-hidden sm:overflow-visible"
         style={{ perspective: 1200, touchAction: "pan-y" }}
         onPanEnd={(e, info) => {
           if (info.offset.x < -50) {
@@ -80,6 +97,9 @@ const ProjectsCarousel = () => {
                 }
               }}
             >
+              {(() => {
+                const body = (
+                  <>
               <div className="font-mono text-sm text-accent-secondary">
                 {`{ id: '${project.id}' }`}
               </div>
@@ -135,6 +155,21 @@ const ProjectsCarousel = () => {
                   </a>
                 )}
               </div>
+                  </>
+                );
+                if (isCenter && tiltOk) {
+                  return (
+                    <TiltedCard
+                      containerWidth="100%" containerHeight="560px" imageWidth="100%" imageHeight="560px"
+                      rotateAmplitude={7} scaleOnHover={1.02} showTooltip={false} flipOnClick={false}
+                      glare={0.22} glareColor="#38BDF8" shadow={0.3} intro={false} gyroscope={false} radius={16}
+                    >
+                      <div className="flex h-full w-full flex-col gap-4 overflow-hidden p-1 sm:gap-6">{body}</div>
+                    </TiltedCard>
+                  );
+                }
+                return body;
+              })()}
             </motion.div>
           );
         })}

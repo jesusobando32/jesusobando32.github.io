@@ -13,6 +13,9 @@ import LanguageSwitcher from './components/LanguageSwitcher';
 import Loader from './components/Loader';
 import MobileCTA from './components/MobileCTA';
 import { useLanguage } from './context/LanguageContext';
+import ClickSpark from './components/rb/ClickSpark';
+import DecryptedText from './components/rb/DecryptedText';
+import ScrollVelocity from './components/rb/ScrollVelocity';
 
 // Partículas WebGL solo en pantallas grandes, sin "reducir movimiento" y con la pestaña visible.
 function useParticlesAllowed() {
@@ -38,8 +41,15 @@ function App() {
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const showParticles = useParticlesAllowed();
+
+  // Respaldo: si la animación del loader se retrasa (pestaña en segundo plano), se quita igual.
+  useEffect(() => {
+    const id = setTimeout(() => setIsLoading(false), 3000);
+    return () => clearTimeout(id);
+  }, []);
   
   return (
+    <ClickSpark sparkColor="#38BDF8" sparkSize={10} sparkRadius={22} sparkCount={8} duration={450}>
     <div className="relative w-full min-h-screen overflow-x-hidden">
       {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
       <CustomCursor />
@@ -87,7 +97,7 @@ function App() {
               <div className="flex items-center gap-4">
                 <h2 className="font-sans text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                   <span className="text-accent-secondary font-mono">&lt;</span>
-                  TechnicalArsenal
+                  <DecryptedText text="TechnicalArsenal" animateOn="view" speed={40} sequential revealDirection="start" />
                   <span className="text-accent-secondary font-mono"> /&gt;</span>
                 </h2>
                 <div className="h-px flex-grow bg-card-border"></div>
@@ -112,6 +122,18 @@ function App() {
               />
             </div>
           </section>
+
+          <div className="w-screen -mx-6 md:-mx-12 py-6 overflow-hidden" aria-hidden="true">
+            <ScrollVelocity
+              texts={['REACT • VUE • NODE • JAVA • PYTHON • POSTGRESQL •', 'SPRING BOOT • DENO • DOCKER • TENSORFLOW • TAILWIND •']}
+              velocity={60}
+              numCopies={4}
+              fadeEdges
+              className="font-mono font-bold text-accent/40"
+              parallaxClassName="vel-row"
+              scrollerClassName="vel-scroller"
+            />
+          </div>
 
           <ProjectsCarousel />
           <Experience />
@@ -138,6 +160,7 @@ function App() {
         </footer>
       </div>
     </div>
+    </ClickSpark>
   );
 }
 
