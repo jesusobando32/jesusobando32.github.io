@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Spotlight from './components/Spotlight';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -7,7 +7,6 @@ import DriftWall from './components/DriftWall';
 import ProjectsCarousel from './components/ProjectsCarousel';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
-import Silk from './components/Silk'; // Assuming shadcn creates it here
 import Antigravity from './components/Antigravity';
 import CustomCursor from './components/CustomCursor';
 import LanguageSwitcher from './components/LanguageSwitcher';
@@ -15,9 +14,30 @@ import Loader from './components/Loader';
 import MobileCTA from './components/MobileCTA';
 import { useLanguage } from './context/LanguageContext';
 
+// Partículas WebGL solo en pantallas grandes, sin "reducir movimiento" y con la pestaña visible.
+function useParticlesAllowed() {
+  const query = () =>
+    window.matchMedia('(min-width: 768px)').matches &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+    !document.hidden;
+  const [ok, setOk] = useState(query);
+  useEffect(() => {
+    const update = () => setOk(query());
+    const mqs = ['(min-width: 768px)', '(prefers-reduced-motion: reduce)'].map((q) => window.matchMedia(q));
+    mqs.forEach((m) => m.addEventListener('change', update));
+    document.addEventListener('visibilitychange', update);
+    return () => {
+      mqs.forEach((m) => m.removeEventListener('change', update));
+      document.removeEventListener('visibilitychange', update);
+    };
+  }, []);
+  return ok;
+}
+
 function App() {
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
+  const showParticles = useParticlesAllowed();
   
   return (
     <div className="relative w-full min-h-screen overflow-x-hidden">
@@ -28,9 +48,10 @@ function App() {
       {/* Background Layer */}
       <div className="fixed inset-0 z-0 pointer-events-none bg-background">
         {/* Antigravity Base Layer */}
+        {showParticles && (
         <div className="absolute inset-0 opacity-20">
           <Antigravity
-            count={300}
+            count={120}
             magnetRadius={10}
             ringRadius={10}
             waveSpeed={0.4}
@@ -48,16 +69,9 @@ function App() {
             fieldStrength={10}
           />
         </div>
-        {/* Silk Overlay Layer */}
-        <div className="absolute inset-0 mix-blend-screen opacity-60">
-          <Silk
-            speed={3}
-            scale={1}
-            color="#0F172A" // Slate-900 (Darker)
-            noiseIntensity={1.2}
-            rotation={0}
-          />
-        </div>
+        )}
+        {/* Capa estática en lugar de un segundo canvas WebGL */}
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 70% 0%, rgba(56,189,248,0.10), transparent 70%), radial-gradient(ellipse 60% 50% at 0% 100%, rgba(15,23,42,0.9), transparent 70%)' }} />
       </div>
 
       {/* Main Content (z-index ensures it's above Silk) */}
@@ -83,7 +97,7 @@ function App() {
               </p>
             </div>
             
-            <div style={{ height: 600, width: '100%' }} className="overflow-hidden relative">
+            <div style={{ height: 480, width: '100%' }} className="overflow-hidden relative">
               <DriftWall
                 items={t.driftWallItems}
                 columns={12}

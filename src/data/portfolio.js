@@ -44,7 +44,7 @@ export const portfolioData = {
     hero: {
       name: "Jesus Obando",
       title: "Front-End / Full-Stack Developer",
-      subtitle: "Building scalable systems and high-contrast interfaces."
+      subtitle: "Construyendo sistemas escalables e interfaces claras."
     },
     about: {
       description1: "Soy estudiante del 7mo semestre de Ingeniería Informática en la Universidad Católica Andrés Bello (UCAB), la universidad mejor clasificada de mi país, Venezuela. Estoy cerca de culminar mi carrera y decidí crear este portafolio para compartir mis conocimientos y experiencias con el mundo.",
@@ -57,6 +57,7 @@ export const portfolioData = {
       {
         id: "viajes-ucab",
         title: "Viajes UCAB",
+        mine: "Vistas en Vue 3, enrutamiento, reportes PDF y parte del backend.",
         role: "Full Stack",
         description: "Plataforma integral para la gestión de servicios turísticos con arquitectura relacional normalizada, delegación lógica en base de datos y generación asíncrona de reportes.",
         tech: ["Vue.js 3", "Node.js", "Express", "PostgreSQL"],
@@ -66,6 +67,7 @@ export const portfolioData = {
       {
         id: "secure-firmware",
         title: "Secure Firmware Portal",
+        mine: "Frontend: plantillas Jinja2, estilos y pantallas de login, dashboard y administración.",
         role: "Backend / Seguridad",
         description: "Sistema de gestión con enfoque AppSec desarrollado para mitigar vulnerabilidades del OWASP Top 10 mediante controles criptográficos estrictos y prevención de vectores RCE.",
         tech: ["Python", "Flask", "SQLite", "Criptografía"],
@@ -75,6 +77,7 @@ export const portfolioData = {
       {
         id: "connect6-ai",
         title: "Connect6 AI Agent",
+        mine: "Desarrollado en pareja con Sebastián Llambi (Aprendizaje Automático, UCAB).",
         role: "IA / Backend",
         description: "Agente inteligente basado en una arquitectura híbrida de Deep Learning y heurística, orquestado mediante microservicios de ultra-baja latencia.",
         tech: ["Python", "TensorFlow", "MCTS", "gRPC", "Docker"],
@@ -83,6 +86,7 @@ export const portfolioData = {
       {
         id: "b2b-aldebaran",
         title: "B2B Aldebaran Platform",
+        mine: "Vistas web que consumen la API y varias funcionalidades del backend.",
         role: "Full Stack",
         description: "Plataforma de gestión comercial End-to-End impulsada por una API RESTful escalable, diseñada con arquitectura zero-config para optimizar operaciones B2B.",
         tech: ["Java", "Spring Boot", "HTML5", "JS", "H2", "JPA"],
@@ -92,6 +96,7 @@ export const portfolioData = {
       {
         id: "battleship-web",
         title: "Batalla Naval (Multiplayer)",
+        mine: "Interfaz, reglas del juego y comunicación en tiempo real por WebSockets.",
         role: "Full Stack",
         description: "Motor de juego cliente-servidor de baja latencia capaz de gestionar estados concurrentes y sincronización bidireccional en tiempo real para múltiples salas.",
         tech: ["Deno", "Vanilla JS", "HTML5", "CSS3", "WebSockets"],
@@ -101,6 +106,7 @@ export const portfolioData = {
       {
         id: "uno-game",
         title: "UNO Card Game",
+        mine: "Código del juego y diseño del estilo visual 8-bit: cartas e interfaz.",
         role: "Desarrollador Java",
         description: "Aplicación de escritorio orientada a eventos construida bajo el patrón MVC, integrando un motor lógico robusto, interfaces asíncronas y serialización para persistencia de estado.",
         tech: ["Java 21", "JavaFX", "MVC", "Gson", "Maven"],
@@ -112,7 +118,7 @@ export const portfolioData = {
       {
         year: "2024",
         title: "Reto Banca Digital Banesco",
-        subtitle: "Participante del equipo ganador.",
+        subtitle: "Primer lugar. Participante del equipo ganador.",
         description: "Diseño de propuesta innovadora usando Lean Canvas y prototipado en Figma. Demostrando capacidad de innovación y trabajo en equipo en un entorno competitivo."
       }
     ],
@@ -148,6 +154,7 @@ export const portfolioData = {
       {
         id: "viajes-ucab",
         title: "Viajes UCAB",
+        mine: "Vue 3 views, routing, PDF reports and part of the backend.",
         role: "Full Stack",
         description: "Comprehensive platform for tourism services management with a normalized relational architecture, logical delegation in the database, and asynchronous report generation.",
         tech: ["Vue.js 3", "Node.js", "Express", "PostgreSQL"],
@@ -157,6 +164,7 @@ export const portfolioData = {
       {
         id: "secure-firmware",
         title: "Secure Firmware Portal",
+        mine: "Frontend: Jinja2 templates, styling, and the login, dashboard and admin screens.",
         role: "Backend / Security",
         description: "Management system with an AppSec approach developed to mitigate OWASP Top 10 vulnerabilities through strict cryptographic controls and RCE vector prevention.",
         tech: ["Python", "Flask", "SQLite", "Cryptography"],
@@ -166,6 +174,7 @@ export const portfolioData = {
       {
         id: "connect6-ai",
         title: "Connect6 AI Agent",
+        mine: "Built as a pair with Sebastián Llambi (Machine Learning, UCAB).",
         role: "AI / Backend",
         description: "Intelligent agent based on a hybrid Deep Learning and heuristic architecture, orchestrated through ultra-low latency microservices.",
         tech: ["Python", "TensorFlow", "MCTS", "gRPC", "Docker"],
@@ -174,6 +183,7 @@ export const portfolioData = {
       {
         id: "b2b-aldebaran",
         title: "B2B Aldebaran Platform",
+        mine: "Web views that consume the API and several backend features.",
         role: "Full Stack",
         description: "End-to-End commercial management platform driven by a scalable RESTful API, designed with a zero-config architecture to optimize B2B operations.",
         tech: ["Java", "Spring Boot", "HTML5", "JS", "H2", "JPA"],
@@ -183,6 +193,7 @@ export const portfolioData = {
       {
         id: "battleship-web",
         title: "Battleship (Multiplayer)",
+        mine: "Interface, game rules and real-time WebSocket communication.",
         role: "Full Stack",
         description: "Low-latency client-server game engine capable of managing concurrent states and real-time bidirectional synchronization for multiple rooms.",
         tech: ["Deno", "Vanilla JS", "HTML5", "CSS3", "WebSockets"],
@@ -192,6 +203,7 @@ export const portfolioData = {
       {
         id: "uno-game",
         title: "UNO Card Game",
+        mine: "Game code and the 8-bit visual design: cards and interface.",
         role: "Java Developer",
         description: "Event-driven desktop application built under the MVC pattern, integrating a robust logic engine, asynchronous interfaces, and serialization for state persistence.",
         tech: ["Java 21", "JavaFX", "MVC", "Gson", "Maven"],
@@ -203,7 +215,7 @@ export const portfolioData = {
       {
         year: "2024",
         title: "Banesco Digital Banking Challenge",
-        subtitle: "Winning team participant.",
+        subtitle: "First place. Winning team participant.",
         description: "Design of an innovative proposal using Lean Canvas and prototyping in Figma. Demonstrating innovation capacity and teamwork in a competitive environment."
       }
     ],

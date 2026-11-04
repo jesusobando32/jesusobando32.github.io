@@ -84,11 +84,16 @@ const ProjectsCarousel = () => {
                 {`{ id: '${project.id}' }`}
               </div>
               
-              {project.image && (
-                <div className="w-full h-32 sm:h-40 relative rounded-lg overflow-hidden border border-card-border/50 shrink-0 mt-2">
-                  <img src={project.image} alt={language === 'es' ? `Captura de pantalla de ${project.title}` : `Screenshot of ${project.title}`} className="object-cover w-full h-full" />
-                </div>
-              )}
+              <div className="w-full h-32 sm:h-40 relative rounded-lg overflow-hidden border border-card-border/50 shrink-0 mt-2">
+                {project.image ? (
+                  <img src={project.image} loading="lazy" alt={language === 'es' ? `Captura de pantalla de ${project.title}` : `Screenshot of ${project.title}`} className="object-cover object-top w-full h-full" />
+                ) : (
+                  <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-background/60 px-4 text-center">
+                    <span className="font-mono text-4xl font-bold text-accent/70">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="font-mono text-[11px] text-muted-foreground">{project.tech.join(' · ')}</span>
+                  </div>
+                )}
+              </div>
               
               <div className="flex flex-col flex-grow relative mt-2">
                 <div className="flex justify-between items-start mb-2">
@@ -100,6 +105,11 @@ const ProjectsCarousel = () => {
                 <p className="font-sans text-muted-foreground leading-relaxed mt-2 flex-grow">
                   {project.description}
                 </p>
+                {project.mine && (
+                  <p className="mt-4 border-l-2 border-accent pl-3 font-mono text-xs leading-relaxed text-foreground/80">
+                    <span className="text-accent">{language === 'es' ? 'Mi parte: ' : 'My part: '}</span>{project.mine}
+                  </p>
+                )}
               </div>
               
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-card-border/50">
