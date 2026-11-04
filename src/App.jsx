@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import Spotlight from './components/Spotlight';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -26,8 +27,9 @@ function useGridRoute() {
     const on = () => {
       const h = window.location.hash;
       setGrid(read());
-      if (h === '' || h.startsWith('#/')) window.scrollTo(0, 0);
-      else setTimeout(() => document.getElementById(h.slice(1))?.scrollIntoView(), 50); // al volver de la cuadrícula a una sección
+      // Espera a que termine la animación de salida antes de mover el scroll.
+      if (h === '' || h.startsWith('#/')) setTimeout(() => window.scrollTo(0, 0), 320);
+      else setTimeout(() => document.getElementById(h.slice(1))?.scrollIntoView(), 420); // al volver de la cuadrícula a una sección
     };
     window.addEventListener('hashchange', on);
     return () => window.removeEventListener('hashchange', on);
@@ -107,6 +109,14 @@ function App() {
       <div className="relative z-10 w-full">
         <Spotlight />
         <Navbar />
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={isGrid ? 'grid' : 'home'}
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -28 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          >
         {isGrid ? (
           <ProjectsPage />
         ) : (
@@ -162,6 +172,8 @@ function App() {
           <Contact />
         </main>
         )}
+          </motion.div>
+        </AnimatePresence>
         
         <footer className="w-full border-t border-card-border bg-background/50 backdrop-blur-md py-8">
           <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row md:px-12">

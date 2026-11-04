@@ -137,3 +137,6 @@
 .about-reveal .scroll-reveal-text { font-size: 1.125rem; line-height: 1.75; font-weight: 400; font-family: inherit; }
 .vel-row { overflow: hidden; white-space: nowrap; }
 .vel-scroller { font-size: clamp(1.25rem, 3.4vw, 2.5rem); line-height: 1.4; }
+
+/* TiltedCard: sin el marco interior; el borde lo da la tarjeta */
+.tilted-card__rim, .tilted-card__edge { display: none; }

@@ -85,7 +85,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 pt-8 w-full"
         >
-          <Magnet padding={60} magnetStrength={4} wrapperClassName="w-full sm:w-auto" innerClassName="w-full"><a href="#projects" className="flex items-center justify-center gap-2 border border-accent bg-accent px-6 py-3 font-mono text-sm font-bold uppercase text-background shadow-lg shadow-accent/20 transition-all hover:-translate-y-1 hover:bg-transparent hover:text-accent w-full sm:w-auto">
+          <Magnet padding={60} magnetStrength={4} wrapperClassName="w-full sm:w-auto" innerClassName="w-full"><a href="#/proyectos" className="flex items-center justify-center gap-2 border border-accent bg-accent px-6 py-3 font-mono text-sm font-bold uppercase text-background shadow-lg shadow-accent/20 transition-all hover:-translate-y-1 hover:bg-transparent hover:text-accent w-full sm:w-auto">
             {t.hero.ctaProjects || (t.about.skillsText.includes('experiencia') ? 'Ver Proyectos' : 'View Projects')}
             <ChevronRight className="h-4 w-4" />
           </a></Magnet>
