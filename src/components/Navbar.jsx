@@ -29,6 +29,9 @@ const Navbar = () => {
           <a href="#projects" className="font-mono text-sm font-medium uppercase text-muted-foreground transition-colors duration-200 hover:text-accent">
             .work()
           </a>
+          <a href="#/proyectos" className="font-mono text-sm font-medium uppercase text-muted-foreground transition-colors duration-200 hover:text-accent">
+            .all()
+          </a>
           <a href="#contact" className="font-mono text-sm font-medium uppercase text-muted-foreground transition-colors duration-200 hover:text-accent">
             {"{contact}"}
           </a>
@@ -65,6 +68,9 @@ const Navbar = () => {
             </a>
             <a href="#projects" onClick={toggleMobileMenu} className="font-mono text-lg font-medium uppercase text-muted-foreground hover:text-accent">
               .work()
+            </a>
+          <a href="#/proyectos" onClick={toggleMobileMenu} className="font-mono text-lg font-medium uppercase text-muted-foreground hover:text-accent">
+              .all()
             </a>
             <a href="#contact" onClick={toggleMobileMenu} className="font-mono text-lg font-medium uppercase text-muted-foreground hover:text-accent">
               {"{contact}"}

@@ -209,6 +209,15 @@ const ProjectsCarousel = () => {
         </button>
       </div>
 
+      <div className="mt-8 flex justify-center relative z-20">
+        <a
+          href="#/proyectos"
+          className="inline-flex items-center gap-2 border border-accent px-6 py-3 font-mono text-sm font-bold uppercase text-accent transition-all hover:bg-accent hover:text-background"
+        >
+          {language === 'es' ? 'Ver todos en cuadrícula' : 'View all as a grid'} →
+        </a>
+      </div>
+
       <div className="mt-2 text-right relative z-20">
         <h2 className="font-mono text-3xl font-bold tracking-tight text-foreground md:text-4xl">
           ];

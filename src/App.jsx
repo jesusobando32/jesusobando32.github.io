@@ -16,6 +16,24 @@ import { useLanguage } from './context/LanguageContext';
 import ClickSpark from './components/rb/ClickSpark';
 import DecryptedText from './components/rb/DecryptedText';
 import ScrollVelocity from './components/rb/ScrollVelocity';
+import ProjectsPage from './components/ProjectsPage';
+
+// Rutas por hash (GitHub Pages no tiene reescritura de URLs): #/proyectos abre la cuadrícula.
+function useGridRoute() {
+  const read = () => window.location.hash.startsWith('#/proyectos');
+  const [grid, setGrid] = useState(read);
+  useEffect(() => {
+    const on = () => {
+      const h = window.location.hash;
+      setGrid(read());
+      if (h === '' || h.startsWith('#/')) window.scrollTo(0, 0);
+      else setTimeout(() => document.getElementById(h.slice(1))?.scrollIntoView(), 50); // al volver de la cuadrícula a una sección
+    };
+    window.addEventListener('hashchange', on);
+    return () => window.removeEventListener('hashchange', on);
+  }, []);
+  return grid;
+}
 
 // Partículas WebGL solo en pantallas grandes, sin "reducir movimiento" y con la pestaña visible.
 function useParticlesAllowed() {
@@ -41,6 +59,7 @@ function App() {
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const showParticles = useParticlesAllowed();
+  const isGrid = useGridRoute();
 
   // Respaldo: si la animación del loader se retrasa (pestaña en segundo plano), se quita igual.
   useEffect(() => {
@@ -88,6 +107,9 @@ function App() {
       <div className="relative z-10 w-full">
         <Spotlight />
         <Navbar />
+        {isGrid ? (
+          <ProjectsPage />
+        ) : (
         <main className="mx-auto flex w-full max-w-7xl flex-col items-center px-6 md:px-12">
           <Hero />
           <About />
@@ -139,6 +161,7 @@ function App() {
           <Experience />
           <Contact />
         </main>
+        )}
         
         <footer className="w-full border-t border-card-border bg-background/50 backdrop-blur-md py-8">
           <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row md:px-12">
