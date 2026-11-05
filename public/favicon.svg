@@ -1,8 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Jesús Obando">
   <rect width="32" height="32" rx="7" fill="#020617"/>
   <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="none" stroke="#38BDF8" stroke-opacity="0.28"/>
-  <g fill="none" stroke="#38BDF8" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14.2 9v10.2c0 2.6-1.7 4-4.1 4-1.5 0-2.8-.6-3.6-1.6"/>
-    <ellipse cx="22.4" cy="16" rx="4.6" ry="7"/>
-  </g>
+  <path d="M10.5 8h10M15.5 8v12.5c0 2.6-1.6 4-4 4-1.2 0-2.2-.4-3-1.1" fill="none" stroke="#38BDF8" stroke-width="2.8" stroke-linejoin="round"/>
+  <rect x="20.5" y="20.8" width="6" height="3.4" fill="#38BDF8"/>
 </svg>
