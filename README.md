@@ -1,16 +1,83 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+<img src="public/favicon.svg" width="88" alt="Logo J_" />
 
-Currently, two official plugins are available:
+# Jesús Obando · Portafolio
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Construyendo sistemas escalables e interfaces claras.**
 
-## React Compiler
+[![Sitio](https://img.shields.io/badge/ver_sitio-jesusobando32.github.io-38BDF8?style=for-the-badge&labelColor=020617)](https://jesusobando32.github.io)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![React](https://img.shields.io/badge/React_19-020617?style=flat-square&logo=react&logoColor=38BDF8)
+![Vite](https://img.shields.io/badge/Vite_8-020617?style=flat-square&logo=vite&logoColor=38BDF8)
+![Tailwind](https://img.shields.io/badge/Tailwind_3-020617?style=flat-square&logo=tailwindcss&logoColor=38BDF8)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-020617?style=flat-square&logo=framer&logoColor=38BDF8)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-020617?style=flat-square&logo=github&logoColor=38BDF8)
 
-## Expanding the Oxlint configuration
+<br />
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+<img src="public/preview.png" width="720" alt="Vista previa del portafolio" />
+
+</div>
+
+<br />
+
+## Qué es
+
+Mi portafolio personal, con estética de terminal en azul oscuro. Está en español e inglés y tiene dos vistas:
+
+- **Inicio:** presentación, sobre mí, experiencia, tecnologías y un carrusel con mis proyectos.
+- **Cuadrícula de proyectos** (`#/proyectos`): los 6 proyectos juntos, con mi rol, mi parte, tecnologías y enlace al código.
+
+## Detalles
+
+- Transición animada entre el inicio y la cuadrícula.
+- Efectos de [React Bits](https://reactbits.dev): texto que se descifra, revelado al hacer scroll, banda de tecnologías que reacciona al scroll, tarjeta con inclinación, botones magnéticos y chispas al hacer clic.
+- Fondo de partículas solo en escritorio, y se pausa si la pestaña no está visible.
+- Respeta `prefers-reduced-motion`.
+- Responsivo, con barra de acción propia para móvil.
+- Cambio de idioma ES / EN.
+
+## Estructura
+
+```text
+src/
+├── components/      Secciones, navegación, carrusel y página de proyectos
+│   └── rb/          Componentes de React Bits adaptados
+├── data/portfolio.js  Contenido en español e inglés (proyectos, experiencia, textos)
+└── App.jsx          Rutas por hash y transiciones
+public/              Logo, vista previa, CVs, robots y sitemap
+```
+
+Todo el contenido vive en `src/data/portfolio.js`: para añadir o editar un proyecto basta con tocar ese archivo.
+
+## Cómo correrlo
+
+```bash
+npm install
+npm run dev
+```
+
+| Comando | Qué hace |
+| --- | --- |
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Compila a `dist/` |
+| `npm run preview` | Sirve la compilación para probarla |
+| `npm run lint` | Revisa el código con Oxlint |
+| `npm run deploy` | Publica `dist/` en la rama `gh-pages` |
+
+> En Windows, si `npm run deploy` falla con "Filename too long", usa una caché corta:
+> `CACHE_DIR=/c/ghp-cache npx gh-pages -d dist`
+
+## Decisiones
+
+- **Rutas con `#`:** GitHub Pages no reescribe URLs, así que la cuadrícula vive en `#/proyectos` y funciona sin servidor.
+- **Un solo canvas WebGL**, solo en escritorio, para cuidar el rendimiento.
+
+<div align="center">
+
+<br />
+
+Hecho por [Jesús Obando](https://github.com/jesusobando32)
+
+</div>
